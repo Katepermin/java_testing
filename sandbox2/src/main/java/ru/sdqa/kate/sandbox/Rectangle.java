@@ -11,7 +11,7 @@ public class Rectangle {
     this.a=a;
     this.b=b;
   }
-  public static double area(){
+  public double area(){
     return this.a*this.b;
   }
 }
