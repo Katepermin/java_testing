@@ -1,5 +1,6 @@
 package ru.stqa.kate.addressbook.appmanager;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -7,9 +8,14 @@ import java.util.concurrent.TimeUnit;
  */
 public class ApplicationManager {
   FirefoxDriver wd;
+  private ContactHelper contactHelper;
   private SessionHelper sessionHelper;
   private NavigationHelper navigationHelper;
   private GroupsHelper groupsHelper;
+
+  public ApplicationManager(FirefoxDriver wd) {
+    navigationHelper = new NavigationHelper(wd);
+  }
 
 
   public void init() {
@@ -19,9 +25,10 @@ public class ApplicationManager {
     groupsHelper = new GroupsHelper(wd);
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
+    contactHelper = new ContactHelper(wd);
+    navigationHelper = new NavigationHelper(wd);
     sessionHelper.login("admin", "secret");
   }
-
 
   public void stop() {
     wd.quit();
@@ -34,4 +41,9 @@ public class ApplicationManager {
   public NavigationHelper getNavigationHelper() {
     return navigationHelper;
   }
+
+  public ContactHelper getContactHelper() {
+    return contactHelper;
+  }
+
 }
