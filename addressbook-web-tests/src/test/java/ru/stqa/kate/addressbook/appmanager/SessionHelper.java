@@ -7,8 +7,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  * Created by Katya on 11/13/2016.
  */
 public class SessionHelper extends HelperBase{
-  private FirefoxDriver wd;
+
   public SessionHelper(FirefoxDriver wd) {
+
     super(wd);
   }
   public void login(String username, String password) {

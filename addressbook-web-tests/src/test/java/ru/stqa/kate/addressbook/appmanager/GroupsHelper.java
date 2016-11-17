@@ -13,7 +13,6 @@ public class GroupsHelper extends HelperBase{
     super(wd);
   }
 
-
   public void returnToGroupPage() {
     click(By.linkText("group page"));
   }

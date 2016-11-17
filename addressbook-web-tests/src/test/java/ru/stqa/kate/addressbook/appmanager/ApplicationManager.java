@@ -13,10 +13,6 @@ public class ApplicationManager {
   private NavigationHelper navigationHelper;
   private GroupsHelper groupsHelper;
 
-  public ApplicationManager(FirefoxDriver wd) {
-    navigationHelper = new NavigationHelper(wd);
-  }
-
 
   public void init() {
     wd = new FirefoxDriver();
