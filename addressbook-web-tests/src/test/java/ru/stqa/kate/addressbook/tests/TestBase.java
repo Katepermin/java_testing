@@ -14,6 +14,7 @@ FirefoxDriver wd;
 
   @BeforeMethod
   public void setUp() throws Exception {
+    app = new ApplicationManager();
     app.init();
   }
 
