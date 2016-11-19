@@ -36,4 +36,19 @@ public class ContactHelper extends HelperBase {
   }
 
 
+  public void updateContactModification() {
+    click(By.name("update"));
+  }
+
+  public void selectContact() {
+    click(By.name("selected[]"));
+  }
+
+  public void deleteContact() {
+    click(By.xpath(".//*[@id='content']/form[2]/div[2]/input"));
+  }
+
+  public void acceptAlert() {
+    wd.switchTo().alert().accept();
+  }
 }

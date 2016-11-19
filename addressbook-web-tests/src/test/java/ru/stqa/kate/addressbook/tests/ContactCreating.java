@@ -1,7 +1,5 @@
 package ru.stqa.kate.addressbook.tests;
-
 import org.testng.annotations.Test;
-
 import ru.stqa.kate.addressbook.model.ContactData;
 
 public class ContactCreating extends TestBase{

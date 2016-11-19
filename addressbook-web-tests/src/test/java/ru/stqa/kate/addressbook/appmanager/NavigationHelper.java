@@ -23,4 +23,12 @@ public class NavigationHelper extends HelperBase{
   public void gotoAddNewPage() {
     click(By.linkText("add new"));
   }
+
+  public void gotoHomePage() {
+    click(By.xpath(".//*[@id='nav']/ul/li[1]/a"));
+  }
+
+  public void selectEditContact() {
+    click(By.xpath(".//*[@id='maintable']/tbody/tr[3]/td[8]/a/img"));
+  }
 }
