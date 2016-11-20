@@ -11,7 +11,7 @@ import ru.stqa.kate.addressbook.appmanager.ApplicationManager;
  */
 public class TestBase {
 
-  public ApplicationManager app = new ApplicationManager(BrowserType.IE);
+  public ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
 
   @BeforeMethod
   public void setUp() throws Exception {
