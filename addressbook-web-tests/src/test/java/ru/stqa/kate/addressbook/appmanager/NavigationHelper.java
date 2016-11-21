@@ -16,6 +16,11 @@ public class NavigationHelper extends HelperBase{
   }
 
   public void gotoGroupPage() {
+    if (isElementPresent(By.tagName("h1"))
+            && wd.findElement(By.tagName("h1")).getText().equals("Groups")
+            && isElementPresent(By.name("new"))){
+     return;
+    }
 
     click(By.linkText("groups"));
   }
@@ -26,10 +31,13 @@ public class NavigationHelper extends HelperBase{
   }
 
   public void gotoHomePage() {
+    if (isElementPresent(By.id("maintable"))){
+      return;
+    }
     click(By.xpath(".//*[@id='nav']/ul/li[1]/a"));
   }
 
   public void selectEditContact() {
-    click(By.xpath(".//*[@id='maintable']/tbody/tr[3]/td[8]/a/img"));
+    click(By.xpath(".//*[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
   }
 }

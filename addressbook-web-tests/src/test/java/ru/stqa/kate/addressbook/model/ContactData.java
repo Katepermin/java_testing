@@ -21,6 +21,7 @@ public class ContactData {
     this.email = email;
     this.group = group;
     this.creation = creation;
+
   }
 
   public String getFirstName() {
