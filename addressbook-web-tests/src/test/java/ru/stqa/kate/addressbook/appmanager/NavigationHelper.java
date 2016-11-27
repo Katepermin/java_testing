@@ -37,7 +37,8 @@ public class NavigationHelper extends HelperBase{
     click(By.xpath(".//*[@id='nav']/ul/li[1]/a"));
   }
 
-  public void selectEditContact() {
-    click(By.xpath(".//*[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+  public void selectEditContact(int index) {
+
+    wd.findElements(By.xpath(".//*[@id='maintable']/tbody/tr[2]/td[8]/a/img")).get(index).click();
   }
 }
