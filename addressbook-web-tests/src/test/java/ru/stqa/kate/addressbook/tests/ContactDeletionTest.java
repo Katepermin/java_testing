@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 import ru.stqa.kate.addressbook.model.ContactData;
 import ru.stqa.kate.addressbook.model.GroupData;
 
+import java.util.List;
+
 /**
  * Created by Katya on 11/18/2016.
  */
@@ -14,15 +16,19 @@ public class ContactDeletionTest extends TestBase {
   public void testContactDeletion(){
 
      app.getNavigationHelper().gotoHomePage();
-    int before = app.getContactHelper().getContactCount();
     if (!app.getContactHelper().isThereAContact()){
       app.getNavigationHelper().gotoAddNewPage();
       app.getContactHelper().createContact(new ContactData("Adam", "Smith", "Ady", "Apple", "+16190000000", "+16191111111", "adam@gmail.com", "Kate"), true);
     }
-    app.getContactHelper().selectContact(before-1);
+    List<ContactData> before=app.getContactHelper().getContactList();
+    app.getContactHelper().selectContact(before.size()-1);
     app.getContactHelper().deleteContact();
     app.getContactHelper().acceptAlert();
-    int after = app.getContactHelper().getContactCount();
-    Assert.assertEquals(after, before -1);
+    app.getNavigationHelper().gotoHomePage();
+    List<ContactData> after=app.getContactHelper().getContactList();
+    Assert.assertEquals(after.size(), before.size() -1);
+
+    before.remove(before.size()-1);
+    Assert.assertEquals(before, after);
   }
 }
