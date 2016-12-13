@@ -14,6 +14,43 @@ public class ContactData {
   private boolean creation;
 
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    ContactData that = (ContactData) o;
+
+    if (creation != that.creation) return false;
+    if (id != null ? !id.equals(that.id) : that.id != null) return false;
+    if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
+    if (lastname != null ? !lastname.equals(that.lastname) : that.lastname != null) return false;
+    if (nick != null ? !nick.equals(that.nick) : that.nick != null) return false;
+    if (work != null ? !work.equals(that.work) : that.work != null) return false;
+    if (phoneHome != null ? !phoneHome.equals(that.phoneHome) : that.phoneHome != null) return false;
+    if (phoneCell != null ? !phoneCell.equals(that.phoneCell) : that.phoneCell != null) return false;
+    if (email != null ? !email.equals(that.email) : that.email != null) return false;
+    return group != null ? group.equals(that.group) : that.group == null;
+
+  }
+
+  @Override
+  public int hashCode() {
+    int result = id != null ? id.hashCode() : 0;
+    result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+    result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+    return result;
+  }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id='" + id + '\'' +
+            ", firstName='" + firstName + '\'' +
+            ", lastname='" + lastname + '\'' +
+            '}';
+  }
+
   public ContactData(String id, String firstName, String lastname, String nick, String work, String phoneHome, String phoneCell, String email, String group) {
     this.firstName = firstName;
     this.lastname = lastname;
@@ -39,33 +76,6 @@ public class ContactData {
     this.creation = creation;
     this.id = null;
 
-  }
-
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "id='" + id + '\'' +
-            ", firstName='" + firstName + '\'' +
-            '}';
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-
-    ContactData that = (ContactData) o;
-
-    if (id != null ? !id.equals(that.id) : that.id != null) return false;
-    return firstName != null ? firstName.equals(that.firstName) : that.firstName == null;
-
-  }
-
-  @Override
-  public int hashCode() {
-    int result = id != null ? id.hashCode() : 0;
-    result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
-    return result;
   }
 
   public String getId() {

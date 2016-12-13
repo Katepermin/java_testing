@@ -63,8 +63,7 @@ public class ContactHelper extends HelperBase {
     wd.findElements(By.name("selected[]")).get(index).click();
   }
   public void initContactModification(int index) {
-   wd.findElements(By.cssSelector("img[title=Edit]")).get(index).click();
-
+   wd.findElements(By.cssSelector("input[type=submit]")).get(index).click();
   }
 
   public void deleteContact() {
